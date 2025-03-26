@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DEV-WEB-AVANCADO\\Aula 01\\WebApi\\WebApi.csproj": {}
+    "C:\\DEV-WEB-AVANCADO\\Aula 01\\Desenvolvimento-Web-Avancado\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\DEV-WEB-AVANCADO\\Aula 01\\WebApi\\WebApi.csproj": {
+    "C:\\DEV-WEB-AVANCADO\\Aula 01\\Desenvolvimento-Web-Avancado\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DEV-WEB-AVANCADO\\Aula 01\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\DEV-WEB-AVANCADO\\Aula 01\\Desenvolvimento-Web-Avancado\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\DEV-WEB-AVANCADO\\Aula 01\\WebApi\\WebApi.csproj",
+        "projectPath": "C:\\DEV-WEB-AVANCADO\\Aula 01\\Desenvolvimento-Web-Avancado\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\igork\\.nuget\\packages\\",
-        "outputPath": "C:\\DEV-WEB-AVANCADO\\Aula 01\\WebApi\\obj\\",
+        "outputPath": "C:\\DEV-WEB-AVANCADO\\Aula 01\\Desenvolvimento-Web-Avancado\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\igork\\AppData\\Roaming\\NuGet\\NuGet.Config"
