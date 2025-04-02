@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Data;
 using WebApi.Models;
 
@@ -32,6 +33,14 @@ namespace WebApi.Controllers
             await _appDbContext.SaveChangesAsync();
 
             return StatusCode(201, personagem);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Personagem>>> GetPersonagem()
+        {
+            var personagens = await _appDbContext.WebApiDB.ToListAsync();
+
+            return Ok(personagens);
         }
     }
 }
