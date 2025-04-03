@@ -49,12 +49,30 @@ namespace WebApi.Controllers
 
             var personagem = await _appDbContext.WebApiDB.FindAsync(id);
 
-            if(personagem == null){
+            if (personagem == null)
+            {
                 return NotFound("Dados inválidos!");
             }
 
             return Ok(personagem);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePersonagem(int id, [FromBody] Personagem personagemAtualizado)
+        {
+
+            var personagemExistente = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if (personagemExistente == null)
+            {
+                return NotFound("Dados inválidos!");
+            }
+
+            _appDbContext.Entry(personagemExistente).CurrentValues.SetValues(personagemAtualizado);
+
+            await _appDbContext.SaveChangesAsync();
+
+            return StatusCode(201, personagemAtualizado);
+        }
     }
 }
