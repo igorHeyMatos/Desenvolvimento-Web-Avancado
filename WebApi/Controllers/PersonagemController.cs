@@ -42,6 +42,7 @@ namespace WebApi.Controllers
 
             return Ok(personagens);
         }
+<<<<<<< HEAD
 
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<Personagem>>> GetPersonagem(int id)
@@ -93,5 +94,8 @@ namespace WebApi.Controllers
             return Ok("Personagem Removido!");
 
         }
+=======
+        
+>>>>>>> 8f68253e7f48bea9e502ac0092779062c9989032
     }
 }
