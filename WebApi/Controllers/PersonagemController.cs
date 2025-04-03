@@ -74,5 +74,24 @@ namespace WebApi.Controllers
 
             return StatusCode(201, personagemAtualizado);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePersonagem(int id)
+        {
+
+            var personagem = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if (personagem == null)
+            {
+                return NotFound("Dados inválidos!");
+            }
+
+            _appDbContext.Remove(personagem);
+
+            await _appDbContext.SaveChangesAsync();
+
+            return Ok("Personagem Removido!");
+
+        }
     }
 }
