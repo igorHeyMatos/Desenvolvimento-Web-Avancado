@@ -42,5 +42,19 @@ namespace WebApi.Controllers
 
             return Ok(personagens);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Personagem>>> GetPersonagem(int id)
+        {
+
+            var personagem = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if(personagem == null){
+                return NotFound("Dados inválidos!");
+            }
+
+            return Ok(personagem);
+        }
+
     }
 }
