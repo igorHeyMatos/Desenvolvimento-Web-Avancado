@@ -42,5 +42,56 @@ namespace WebApi.Controllers
 
             return Ok(personagens);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<Personagem>>> GetPersonagem(int id)
+        {
+
+            var personagem = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if (personagem == null)
+            {
+                return NotFound("Dados inválidos!");
+            }
+
+            return Ok(personagem);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePersonagem(int id, [FromBody] Personagem personagemAtualizado)
+        {
+
+            var personagemExistente = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if (personagemExistente == null)
+            {
+                return NotFound("Dados inválidos!");
+            }
+
+            _appDbContext.Entry(personagemExistente).CurrentValues.SetValues(personagemAtualizado);
+
+            await _appDbContext.SaveChangesAsync();
+
+            return StatusCode(201, personagemAtualizado);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeletePersonagem(int id)
+        {
+
+            var personagem = await _appDbContext.WebApiDB.FindAsync(id);
+
+            if (personagem == null)
+            {
+                return NotFound("Dados inválidos!");
+            }
+
+            _appDbContext.Remove(personagem);
+
+            await _appDbContext.SaveChangesAsync();
+
+            return Ok("Personagem Removido!");
+
+        }
     }
 }
