@@ -21,11 +21,11 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPersonagem(Personagem personagem)
+        public async Task<IActionResult> AddPersonagem([FromBody] Personagem personagem)
         {
-            if (personagem == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Dados inválidos!");
+                return BadRequest(ModelState);
             }
 
             _appDbContext.WebApiDB.Add(personagem);
