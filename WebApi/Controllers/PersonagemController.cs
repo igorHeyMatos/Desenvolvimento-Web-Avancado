@@ -32,7 +32,7 @@ namespace WebApi.Controllers
 
             await _appDbContext.SaveChangesAsync();
 
-            return StatusCode(201, personagem);
+            return Created("Personagem criado com sucesso!", personagem);
         }
 
         [HttpGet]
